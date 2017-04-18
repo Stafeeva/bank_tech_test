@@ -13,4 +13,11 @@ describe Account do
       expect{subject.deposit(1000)}.to change{subject.balance}.by(1000)
     end
   end
+
+  context "withdrawal" do
+    it "should withdraw an amount from an account" do
+      subject.deposit(1500)
+      expect{subject.withdraw(300)}.to change{subject.balance}.by(300)
+    end
+  end
 end

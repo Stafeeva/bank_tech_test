@@ -23,9 +23,9 @@ describe Account do
 
   context "transactions" do
     it "should store the history of all transactions" do
-      subject.deposit(1000)
+      subject.deposit(1000, "18/04/2017")
       expect(subject.transactions).to eq [{date: "18/04/2017", credit: 1000, balance: 1000 }]
-      subject.withdraw(300)
+      subject.withdraw(300, "18/04/2017")
       expect(subject.transactions).to eq [{date: "18/04/2017", credit: 1000, balance: 1000 }, {date: '18/04/2017', debit: 300, balance: 700 }]
     end
   end

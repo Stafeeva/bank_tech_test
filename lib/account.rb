@@ -7,14 +7,14 @@ class Account
     @transactions = []
   end
 
-  def deposit(amount)
+  def deposit(amount, date = Time.now)
     @balance += amount
-    @transactions << {date: "#{Time.now.strftime('%d/%m/%Y')}", credit: amount, balance: balance}
+    @transactions << {date: date , credit: amount, balance: balance}
   end
 
-  def withdraw(amount)
+  def withdraw(amount, date = Time.now)
     @balance -= amount
-    @transactions << {date: "#{Time.now.strftime('%d/%m/%Y')}", debit: amount, balance: balance}
+    @transactions << {date: date, debit: amount, balance: balance}
   end
 
 end

@@ -29,4 +29,11 @@ describe Account do
       expect(subject.transactions).to eq [{date: "18/04/2017", credit: 1000, balance: 1000 }, {date: '18/04/2017', debit: 300, balance: 700 }]
     end
   end
+
+  context "statement" do
+    it "should print the statement" do
+      subject.deposit(1000)
+      expect(subject.print_statement).to eq "date || credit || debit || balance\n18/04/2017 || 1000.00 ||  || 1000.00\n"
+    end
+  end
 end

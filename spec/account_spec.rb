@@ -25,6 +25,8 @@ describe Account do
     it "should store the history of all transactions" do
       subject.deposit(1000)
       expect(subject.transactions).to eq [{credit: 1000, balance: 1000 }]
+      subject.withdraw(300)
+      expect(subject.transactions).to eq [{credit: 1000, balance: 1000 }, {debit: 300, balance: 700 }]
     end
   end
 end

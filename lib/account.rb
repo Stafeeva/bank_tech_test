@@ -9,11 +9,12 @@ class Account
 
   def deposit(amount)
     @balance += amount
-    @transactions << {credit: amount, balance: balance}
+    @transactions << {date: "#{Time.now.strftime('%d/%m/%Y')}", credit: amount, balance: balance}
   end
 
   def withdraw(amount)
     @balance -= amount
+    @transactions << {date: "#{Time.now.strftime('%d/%m/%Y')}", debit: amount, balance: balance}
   end
 
 end

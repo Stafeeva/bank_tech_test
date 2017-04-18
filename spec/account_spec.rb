@@ -20,4 +20,11 @@ describe Account do
       expect{subject.withdraw(300)}.to change{subject.balance}.by(-300)
     end
   end
+
+  context "transactions" do
+    it "should store the history of all transactions" do
+      subject.deposit(1000)
+      expect(subject.transactions).to eq [{credit: 1000, balance: 1000 }]
+    end
+  end
 end
